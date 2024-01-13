@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SenkoHub:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SenkoHub_jar</output-path>
+    <root id="archive" name="SenkoHub.jar">
+      <element id="module-output" name="SenkoHub" />
+    </root>
+  </artifact>
+</component>

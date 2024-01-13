@@ -1,0 +1,4 @@
+name: SenkoHub
+version: '${project.version}'
+main: moe.sourcekaos.senkohub.SenkoHub
+api-version: '1.20'

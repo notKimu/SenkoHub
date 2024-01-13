@@ -1,0 +1,11 @@
+## Player Interactions
+breaking-disabled: "Breaking blocks is disabled"
+placing-disabled: "Placing blocks is disabled"
+
+inventory-frozen: "Whoops! Tinkering with the inventory is disabled"
+
+## Command Messages
+spawn-set: "The spawn point was set at X: {x}, Y: {y}, Z: {z} | Pitch: {pitch} Yaw: {yaw}"
+
+## Command Errors
+player-only-command: "You need to be a player to run this command!"

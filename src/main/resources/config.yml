@@ -1,0 +1,28 @@
+## Confused? Check https://sourcekaos.moe/plugins/senkohub for the docs!
+#####################################
+##  へ       SenkoHub - By Kimu    ##
+##（• ˕ •マ   Hub management plugin ##
+#####################################
+## Config version, plz do not touch
+version: 1
+
+# On spawn event
+teleport-to-spawn: true
+spawn-location:
+
+# You likely want to keep them all on `true`
+cancel-interactions: true
+clear-inventory: true
+disable-damage: true
+disable-hunger: true
+freeze-inventory: true
+heal-player: true
+respawn-on-void: true
+
+# Should we notify the player when tries to perform
+# a forbidden interaction
+notify-forbidden-interaction: true
+
+# Leave blank to use the default join message
+## Replaces `{player}` with the name of the player that joined
+join-message: ""
