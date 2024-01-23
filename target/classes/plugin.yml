@@ -1,4 +1,0 @@
-name: SenkoHub
-version: '1.0-SNAPSHOT'
-main: moe.sourcekaos.senkohub.SenkoHub
-api-version: '1.20'
