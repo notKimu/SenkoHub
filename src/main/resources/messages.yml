@@ -1,11 +1,18 @@
-## Player Interactions
-breaking-disabled: "Breaking blocks is disabled"
-placing-disabled: "Placing blocks is disabled"
+#####################
+## M E S S A G E S ##
+#####################
+# Tip: Leave empty to omit a message
 
-inventory-frozen: "Whoops! Tinkering with the inventory is disabled"
+## Player Interactions
+breaking-disabled: "§cBreaking blocks is disabled"
+inventory-frozen: "§cWhoops! Tinkering with the inventory is disabled"
+interaction-disabled: "§cInteracting with items is disabled!"
+placing-disabled: "§cPlacing blocks is disabled"
 
 ## Command Messages
-spawn-set: "The spawn point was set at X: {x}, Y: {y}, Z: {z} | Pitch: {pitch} Yaw: {yaw}"
+spawn-set: "§fThe spawn point was set at X: §c{x}§f, Y: §c{y}§f, Z: §c{z}§f | Pitch: §c{pitch}§f Yaw: §c{yaw}"
+spawn-set-teleport-disabled: "§eWarning§f: Teleporting players to the spawn point when they join is disabled
+  Enable it in the config.yml file if needed"
 
 ## Command Errors
-player-only-command: "You need to be a player to run this command!"
+player-only-command: "§cYou need to be a player to run this command!"

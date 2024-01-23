@@ -11,10 +11,10 @@ teleport-to-spawn: true
 spawn-location:
 
 # You likely want to keep them all on `true`
-cancel-interactions: true
 clear-inventory: true
 disable-damage: true
 disable-hunger: true
+disable-interactions: true
 freeze-inventory: true
 heal-player: true
 respawn-on-void: true
@@ -23,6 +23,15 @@ respawn-on-void: true
 # a forbidden interaction
 notify-forbidden-interaction: true
 
-# Leave blank to use the default join message
-## Replaces `{player}` with the name of the player that joined
+# Items to give players when they join
+join-items:
+
+
+# Leave blank to use the default message
+## Replaces %player% with the name of the player
 join-message: ""
+leave-message: ""
+
+join-commands:
+  - "[TITLE] Welcome;We love having you here {player}!"
+  - "[EFFECT] speed;2"

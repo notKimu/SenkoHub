@@ -1,26 +1,30 @@
 package moe.sourcekaos.senkohub.providers;
 
 import moe.sourcekaos.senkohub.SenkoHub;
-import moe.sourcekaos.senkohub.storage.MessageTypes;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Set;
 
+/**
+ * Loads the messages in the messages file to reference
+ * them faster from the RAM rather than the disk
+ * */
 public class MessageProvider {
+    static private final String MESSAGES_FILE_NAME = "messages.yml";
     static private final HashMap<String, String> messagesMap = new HashMap<>();
 
-    static public void load(SenkoHub plugin) {
-        String messagesFileName = "messages.yml";
-
+    static public void load(@NotNull SenkoHub plugin) {
         plugin.getLogger().info("Loading messages...");
 
-        File messagesFile = new File(plugin.getDataFolder(), messagesFileName);
+        File messagesFile = new File(plugin.getDataFolder(), MESSAGES_FILE_NAME);
 
         if (!messagesFile.exists()) {
-            plugin.saveResource(messagesFileName, false);
+            plugin.getLogger().info(MESSAGES_FILE_NAME + " is missing, creating it...");
+            plugin.saveResource(MESSAGES_FILE_NAME, false);
         }
 
         FileConfiguration messagesConfig = YamlConfiguration.loadConfiguration(messagesFile);
@@ -33,8 +37,8 @@ public class MessageProvider {
         });
     }
 
-    static public String getMessage(MessageTypes msgType) {
-        return messagesMap.get(msgType.key());
+    static public String getMessage(String msgKey) {
+        return messagesMap.get(msgKey);
     }
 
     static public void setMessage(String msgKey, String msgContent) {
