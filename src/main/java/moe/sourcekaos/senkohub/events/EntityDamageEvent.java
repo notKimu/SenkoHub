@@ -6,7 +6,6 @@ import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -14,15 +13,15 @@ import org.jetbrains.annotations.NotNull;
  * teleporting them to the spawn if they fall
  * to the void
  * */
-public class EntityDamage implements Listener {
+public class EntityDamageEvent implements Listener {
     final Configuration pluginConfig;
 
-    public EntityDamage(Configuration config) {
+    public EntityDamageEvent(Configuration config) {
         pluginConfig = config;
     }
 
     @EventHandler
-    public void onPlayerJoin(@NotNull EntityDamageEvent event) {
+    public void onPlayerJoin(@NotNull org.bukkit.event.entity.EntityDamageEvent event) {
         final boolean doCancelDamage = pluginConfig.getBoolean(SettingsOptions.IS_DAMAGE_DISABLED);
         final boolean doRespawnOnVoid = pluginConfig.getBoolean(SettingsOptions.SHOULD_RESPAWN_ON_VOID);
 
@@ -30,7 +29,7 @@ public class EntityDamage implements Listener {
             event.setCancelled(true);
         }
 
-        if (doRespawnOnVoid && event.getCause() == EntityDamageEvent.DamageCause.VOID) {
+        if (doRespawnOnVoid && event.getCause() == org.bukkit.event.entity.EntityDamageEvent.DamageCause.VOID) {
             final Player player = ((Player) event.getEntity()).getPlayer();
             if (player == null) {
                 return;

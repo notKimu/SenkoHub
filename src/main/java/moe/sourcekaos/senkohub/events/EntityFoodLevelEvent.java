@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Handles cancelling the hunger change event
  * */
-public class EntityFoodLevel implements Listener {
+public class EntityFoodLevelEvent implements Listener {
     @EventHandler
     public void onHungerChange(@NotNull FoodLevelChangeEvent event) {
         if (!(event.getEntity() instanceof Player)) {

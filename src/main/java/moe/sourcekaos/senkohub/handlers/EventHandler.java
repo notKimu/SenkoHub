@@ -17,8 +17,8 @@ public abstract class EventHandler {
         pluginManager.registerEvents(new PlayerJoinEvent(pluginInstance), pluginInstance);
         pluginManager.registerEvents(new InventoryEvent(pluginConfig), pluginInstance);
         pluginManager.registerEvents(new InteractionEvent(pluginConfig), pluginInstance);
-        pluginManager.registerEvents(new EntityDamage(pluginConfig), pluginInstance);
-        pluginManager.registerEvents(new EntityFoodLevel(), pluginInstance);
+        pluginManager.registerEvents(new EntityDamageEvent(pluginConfig), pluginInstance);
+        pluginManager.registerEvents(new EntityFoodLevelEvent(), pluginInstance);
 
         pluginInstance.getServer().getLogger().info("Registered the events");
     }
