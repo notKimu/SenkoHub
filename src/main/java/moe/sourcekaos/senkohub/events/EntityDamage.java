@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
  * to the void
  * */
 public class EntityDamage implements Listener {
-    Configuration pluginConfig;
+    final Configuration pluginConfig;
 
     public EntityDamage(Configuration config) {
         pluginConfig = config;
@@ -23,15 +23,15 @@ public class EntityDamage implements Listener {
 
     @EventHandler
     public void onPlayerJoin(@NotNull EntityDamageEvent event) {
-        boolean doCancelDamage = pluginConfig.getBoolean(SettingsOptions.IS_DAMAGE_DISABLED);
-        boolean doRespawnOnVoid = pluginConfig.getBoolean(SettingsOptions.SHOULD_RESPAWN_ON_VOID);
+        final boolean doCancelDamage = pluginConfig.getBoolean(SettingsOptions.IS_DAMAGE_DISABLED);
+        final boolean doRespawnOnVoid = pluginConfig.getBoolean(SettingsOptions.SHOULD_RESPAWN_ON_VOID);
 
         if (doCancelDamage) {
             event.setCancelled(true);
         }
 
         if (doRespawnOnVoid && event.getCause() == EntityDamageEvent.DamageCause.VOID) {
-            Player player = ((Player) event.getEntity()).getPlayer();
+            final Player player = ((Player) event.getEntity()).getPlayer();
             if (player == null) {
                 return;
             }

@@ -16,7 +16,7 @@ public class EntityFoodLevel implements Listener {
             return;
         }
 
-        Player player = (Player) event.getEntity();
+        final Player player = (Player) event.getEntity();
         event.setCancelled(true);
         player.setFoodLevel(20);
     }

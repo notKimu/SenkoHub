@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
  * or entities
  * */
 public class InteractionEvent implements Listener {
-    Configuration pluginConfig;
+    final Configuration pluginConfig;
 
     public InteractionEvent(Configuration config) {
         pluginConfig = config;

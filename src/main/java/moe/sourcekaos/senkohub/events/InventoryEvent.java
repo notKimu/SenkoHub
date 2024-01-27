@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
  * or throwing / picking items
  * */
 public class InventoryEvent implements Listener {
-    Configuration pluginConfig;
+    final Configuration pluginConfig;
 
     public InventoryEvent(Configuration config) {
         pluginConfig = config;
@@ -28,46 +28,46 @@ public class InventoryEvent implements Listener {
 
     @EventHandler
     public void onItemBreak(BlockBreakEvent event) {
-        Player player = event.getPlayer();
+        final Player player = event.getPlayer();
         if (!pluginConfig.getBoolean(SettingsOptions.IS_INVENTORY_FROZEN) || player.hasPermission(PermissionTypes.INVENTORY_BYPASS)) {
             return;
         }
 
         event.setCancelled(true);
 
-        String inventoryFrozenMsg = MessageProvider.getMessage(MessageTypes.BREAKING_DISABLED);
+        final String inventoryFrozenMsg = MessageProvider.getMessage(MessageTypes.BREAKING_DISABLED);
         player.sendMessage(inventoryFrozenMsg);
     }
 
     @EventHandler
     public void onItemPlace(@NotNull BlockPlaceEvent event) {
-        Player player = event.getPlayer();
+        final Player player = event.getPlayer();
         if (!pluginConfig.getBoolean(SettingsOptions.IS_INVENTORY_FROZEN) || player.hasPermission(PermissionTypes.INVENTORY_BYPASS)) {
             return;
         }
 
         event.setCancelled(true);
 
-        String inventoryFrozenMsg = MessageProvider.getMessage(MessageTypes.PLACING_DISABLED);
+        final String inventoryFrozenMsg = MessageProvider.getMessage(MessageTypes.PLACING_DISABLED);
         player.sendMessage(inventoryFrozenMsg);
     }
 
     @EventHandler
     public void onItemDrop(@NotNull PlayerDropItemEvent event) {
-        Player player = event.getPlayer();
+        final Player player = event.getPlayer();
         if (!pluginConfig.getBoolean(SettingsOptions.IS_INVENTORY_FROZEN) || player.hasPermission(PermissionTypes.INVENTORY_BYPASS)) {
             return;
         }
 
         event.setCancelled(true);
 
-        String inventoryFrozenMsg = MessageProvider.getMessage(MessageTypes.INVENTORY_FROZEN);
+        final String inventoryFrozenMsg = MessageProvider.getMessage(MessageTypes.INVENTORY_FROZEN);
         player.sendMessage(inventoryFrozenMsg);
     }
 
     @EventHandler
     public void onItemPick(@NotNull PlayerPickItemEvent event) {
-        Player player = event.getPlayer();
+        final Player player = event.getPlayer();
         if (!pluginConfig.getBoolean(SettingsOptions.IS_INVENTORY_FROZEN) || player.hasPermission(PermissionTypes.INVENTORY_BYPASS)) {
             return;
         }

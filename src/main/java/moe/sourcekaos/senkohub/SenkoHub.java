@@ -17,7 +17,7 @@ public final class SenkoHub extends JavaPlugin {
         MessageProvider.load(this);
 
         // Register Events
-        new EventHandler(this).register();
+        EventHandler.register(this);
 
         // Register Commands
         getServer().getCommandMap().register("set-spawn", new SetSpawn(this));

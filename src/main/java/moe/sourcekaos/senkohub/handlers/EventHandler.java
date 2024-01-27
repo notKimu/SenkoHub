@@ -4,18 +4,13 @@ import moe.sourcekaos.senkohub.SenkoHub;
 import moe.sourcekaos.senkohub.events.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginManager;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Handles the registration of events
  * */
-public class EventHandler {
-    private final SenkoHub pluginInstance;
-
-    public EventHandler(SenkoHub plugin) {
-        pluginInstance = plugin;
-    }
-
-    public void register() {
+public abstract class EventHandler {
+    public static void register(@NotNull SenkoHub pluginInstance) {
         PluginManager pluginManager = pluginInstance.getServer().getPluginManager();
         FileConfiguration pluginConfig = pluginInstance.getConfig();
 

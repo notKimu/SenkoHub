@@ -21,8 +21,8 @@ import java.util.List;
  * Handles the event for when a user joins the server
  * */
 public class PlayerJoinEvent implements Listener {
-    SenkoHub pluginInstance;
-    Configuration pluginConfig;
+    final SenkoHub pluginInstance;
+    final Configuration pluginConfig;
 
     public PlayerJoinEvent(SenkoHub plugin) {
         pluginInstance = plugin;
@@ -31,7 +31,7 @@ public class PlayerJoinEvent implements Listener {
 
     @EventHandler
     public void onPlayerJoin(@NotNull org.bukkit.event.player.PlayerJoinEvent event) {
-        Player player = event.getPlayer();
+        final Player player = event.getPlayer();
         if (player.hasPermission(PermissionTypes.JOIN_BYPASS)) {
             return;
         }
@@ -66,7 +66,7 @@ public class PlayerJoinEvent implements Listener {
         // Custom join message logic
         String joinMessage = pluginConfig.getString(SettingsOptions.JOIN_MESSAGE);
         if (joinMessage != null && !joinMessage.isEmpty()) {
-            String replacedJoinMessage = ReplaceUtil.replacePlayerName(joinMessage, player.getName());
+            final String replacedJoinMessage = ReplaceUtil.replacePlayerName(joinMessage, player.getName());
             event.setJoinMessage(replacedJoinMessage);
         }
 
